@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Response Page</title>
+  <style> body{background-color:powderblue;}
+          h1{color:black;}
+  </style>
+</head>
+<body>
+  <!-- <img src="{{url_for('static', filename='2.png')}}" alt="Oops"> -->
+  {% for hist in hists %}
+  <img src="{{url_for('static', filename='crops/'+hist)}}" alt=""width="100" height="200" alt="previous" title="Previous" border="0">
+  {% endfor %}
+  <a href="{{ url_for('MasterClass:db') }}">SendToDatabase</a>
+<button onclick="goBack()">back</button>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+</body>
+</html>

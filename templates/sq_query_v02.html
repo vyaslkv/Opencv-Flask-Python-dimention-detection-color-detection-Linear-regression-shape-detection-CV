@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Entry Page</title>
+  <style> body{background-color:powderblue;}
+          body{color:black;}
+  </style>
+</head>
+<body>
+<form action="{{ url_for('new') }}" enctype="multipart/form-data" method="post">
+  <img id="blah" alt="" width="100" height="100" />
+<label for="files" class="btn" >Select backlight image</label>
+<input type="file" name='picture1' id="files" style="visibility:hidden;"     onchange="document.getElementById('blah').src=window.URL.createObjectURL(this.files[0])">
+
+<input type="text" name="pillname">
+<br>
+R<input type="text" name="r" value=0>
+G<input type="text" name="g" value=0>
+B<input type="text" name="b" value=0>
+
+<img id="blahb" alt="" width="100" height="100" />
+<label for="files1" class="btn" >Select frontlight image</label>
+<input type="file" name='picture2' id="files1" style="visibility:hidden;"     onchange="document.getElementById('blahb').src=window.URL.createObjectURL(this.files[0])">
+
+<img id="blahb_size" alt="" width="100" height="100" />
+<label for="files2" class="btn" >Select bottom light image for size</label>
+<input type="file" name='picture3' id="files2" style="visibility:hidden;"     onchange="document.getElementById('blahb_size').src=window.URL.createObjectURL(this.files[0])">
+<!-- <img id="blaht" alt="" width="100" height="100" />
+<label for="files2" class="btn" >Select Solid Color Image</label>
+<input type="file" name='picture3' id="files2" style="visibility:hidden;"     onchange="document.getElementById('blaht').src=window.URL.createObjectURL(this.files[0])"> -->
+<!-- <a href="{{ url_for('new') }}"><input type="submit" name="" value="send the photos"></a> -->
+<!-- <img id="blahff" alt="" width="100" height="100" />
+<label for="files3" class="btn" >Select front face crop</label>
+<input type="file" name='picture4' id="files3" style="visibility:hidden;"     onchange="document.getElementById('blahff').src=window.URL.createObjectURL(this.files[0])"> -->
+
+<!-- <img id="blahbf" alt="" width="100" height="100" />
+<label for="files4" class="btn" >Select back face crop</label>
+<input type="file" name='picture5' id="files4" style="visibility:hidden;"     onchange="document.getElementById('blahbf').src=window.URL.createObjectURL(this.files[0])"> -->
+
+<input type="submit" name="send the pics" value="send the pics">
+</form>
+<div>
+  <a href="{{ url_for('display') }}">show images</a>
+  {{first_event}}  {{second_event}}
+  {% for hist in hists %}
+  <img src="{{url_for('static', filename='css/images/'+hist)}}" alt="{{hist}}"width="200" height="200" alt="previous" title="Previous" border="0">
+  {% endfor %}
+  <!-- <input type="button" name="show clicked images" value="show clicked imges"> -->
+</div>
+
+  <a href="{{ url_for('click') }}" >click</a>
+
+
+</body>
+</html>
